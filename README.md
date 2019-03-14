@@ -29,3 +29,9 @@
 ## Authors
 
 * **EspeIgira** - *Initial work* - [EspeIgira](https://github.com/EspeIgira/)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+*{copyright &copy:2019 Personal Gallery.}**# Personal-gallery
