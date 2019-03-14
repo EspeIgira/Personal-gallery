@@ -21,3 +21,7 @@
  . Bootstrap 
   
  . CSS Stylesheet
+
+## Contact information
+
+   Telephone number (+250)788556167 or Email espeigira@gamil.com
