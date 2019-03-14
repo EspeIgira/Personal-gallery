@@ -7,21 +7,21 @@
   <meta charset="utf-8">
 
   {% if title %}
-  <title>Moringa Tribune - {{title}}</title>
+  <title>PERSONAL GALLERY - {{title}}</title>
   {% else %}
-    <title> Moringa Tribune </title>
+    <title> PERSONAL GALLERY </title>
   {% endif %}
 
   {% block styles %}
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
+    <link rel="stylesheet" href="{% static 'css/baseimages.css' %}">
   {% endblock %}
 
 </head>
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center'>News for {{date|date:"l d-F Y"}}</h1> {%endblock%}
+    {% block content %} <h1 class='text-center'>Images for {{date|date:"l d-F Y"}}</h1> {%endblock%}
 
     {% block scripts %}
 
