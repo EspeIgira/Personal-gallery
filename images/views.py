@@ -34,3 +34,4 @@ def image(request,image_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"all-images/picture.html", {"image":image})
+    

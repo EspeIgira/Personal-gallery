@@ -54,5 +54,10 @@ class Image(models.Model):
         except DoesNotExist:
             return Image.objects.get(id=1)
 
+    @classmethod
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(category__icontains=search_term)
+        return images
+
 
     
