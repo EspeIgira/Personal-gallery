@@ -9,7 +9,7 @@ from .models import Image
 def gallery(request):
     return render(request, 'gallery.html')
 
-def upload_images(request):
+def The_images(request):
 
     my_images = Image.objects.all()
     return render(request, 'all-images/picture.html', {"my_images":my_images})
