@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from .models import Image
+
 
 
 # def gallery(request):
@@ -8,6 +9,12 @@ from .models import Image
 
 def gallery(request):
     return render(request, 'gallery.html')
+
+
+def images_of_gallery(request):
+    date = dt.date.gallery()
+    return render(request, 'all-images/picture.html', {"date": date,})
+
 
 def The_images(request):
 
