@@ -1,26 +1,38 @@
 {%extends 'all-images/base.html'%}
+{% block content %} 
+{{ block.super}}
 
- {% block content %}
+<div class="container">
 
- <div class="container">
+  <!-- Looping through news   -->
+  {% for picture in my_images %}
 
-   <div class="row">
-     <img src="{{picture.picture_image.url}}"  class="img-responsive" alt="">
-   </div>
+  <div class="row">
+    <!-- displaying News articles -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      
+      <h2 class="text-center"> {{ picture.name }} </h2>
+      <h2 class="text-center"> {{ picture.Images_Main_Img }} </h2>
+      <!-- <h2 class="text-center"> {{ picture.description }} </h2> -->
+      <h2 class="text-center"> {{ picture.location }} </h2>
+      <h2 class="text-center"> {{ picture.category }} </h2>
+    </div>
 
-   <div class="row">
-     <h1 class="text-center">{{picture.title}}</h1>
-   </div>
+    <!--Display news Article images  -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      
+      <img src="{{ picture.Images_Main_Img.url }}" class="img-responsive" alt="Image">
+    </div>
 
-   <div class="row">
-     <p>{{picture.post}}</p>
-   </div>
+  </div>
 
-   <div class="row">
-     <p>Posted {{picture.pub_date|timesince}} by {{picture.editor.first_name}}</p>
-   </div>
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There is no pictures</h2>
+  </div>
+  {% endfor %}
 
- </div>
+</div>
 
- {% endblock %}
+{% endblock %}
  

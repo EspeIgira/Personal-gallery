@@ -1,12 +1,6 @@
 from django.db import models
 
-class Images(models.Model):
 
-    name = models.CharField(max_length =30)
-    Images_Main_Img = models.ImageField(upload_to='images/') 
-    location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
-   
 class Category(models.Model):
 
     name = models.CharField(max_length =30)
@@ -27,12 +21,33 @@ class Location(models.Model):
 
 
 
-     # def __str__(self):
-    #     return self.name
 
 
-    # def save_editor(self):
-    #     self.save()
+class Images(models.Model):
+
+    name = models.CharField(max_length =30)
+    Images_Main_Img = models.ImageField(upload_to='images/') 
+    description = models.TextField()
+    location = models.ForeignKey(Location)
+    category = models.ForeignKey(Category)
+   
+
+
+
+    def __str__(self):
+        return self.name
+
+
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def get_image(cls,id):
+        try:
+            image=Images.objects.get(id=id)
+            return image
+        except DoesNotExist:
+            return Images.objects.get(id=1)
 
 
     # def delete_editor(self):
