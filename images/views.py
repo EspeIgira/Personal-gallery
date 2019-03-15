@@ -12,7 +12,7 @@ def gallery(request):
 def upload_images(request):
 
     my_images = Images.objects.all()
-    return render(request, 'all-images/picture.html', {"my_images":my_images,})
+    return render(request, 'all-images/picture.html', {"my_images":my_images})
 
 
        
