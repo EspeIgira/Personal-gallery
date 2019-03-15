@@ -21,13 +21,14 @@
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center'>Images</h1> {%endblock%}
+    {% block content %} <h1 class='text-center'>Images gallery<hr></h1> {%endblock%}
+    
 
     {% block scripts %}
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <button type="submit">Upload</button>
+        <!-- <button type="submit">Upload</button> -->
 
      {% bootstrap_javascript %}
     {% endblock %}
