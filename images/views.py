@@ -11,32 +11,16 @@ def gallery(request):
     return render(request, 'gallery.html')
 
 
-def images_of_gallery(request):
-    date = dt.date.gallery()
-    return render(request, 'all-images/picture.html', {"date": date,})
+def images_of_today(request):
+    date = dt.date.today()
+    images = Image.todays_images()
+    return render(request, 'all-images/picture.html', {"date": date,"images":images})
 
 
 def The_images(request):
 
     my_images = Image.objects.all()
     return render(request, 'all-images/picture.html', {"my_images":my_images})
-
-
-
-def gallery_of_images(request, gallery_date):
-
-
-    except ValueError:
-        # Raise 404 error when ValueError is thrown
-        raise Http404()
-        assert False
-
-    if date == dt.date.gallery():
-        return redirect(images_of_gallery)
-
-    return render(request, 'all-images/picture.html', {"date": date,})
-
-
 
 
 def search_results(request):
