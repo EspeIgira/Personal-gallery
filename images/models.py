@@ -19,10 +19,6 @@ class Location(models.Model):
         return self.city
 
 
-
-
-
-
 class Images(models.Model):
 
     name = models.CharField(max_length =30)
@@ -41,6 +37,18 @@ class Images(models.Model):
     def save_image(self):
         self.save()
 
+    def delete_image(self):
+        self.delete()
+
+    def update_image(self):
+        self.update()
+    
+    def display_image(self):
+        self.display()
+
+    class Meta:
+        ordering = ['name']
+
     @classmethod
     def get_image(cls,id):
         try:
@@ -50,14 +58,4 @@ class Images(models.Model):
             return Images.objects.get(id=1)
 
 
-    # def delete_editor(self):
-    #     self.delete()
-
-    # def update_editor(self):
-    #     self.update()
     
-    # def display_editor(self):
-    #     self.display()
-
-    # class Meta:
-    #     ordering = ['name','welcome_Main_Img']
