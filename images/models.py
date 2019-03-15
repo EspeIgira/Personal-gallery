@@ -8,6 +8,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def search_by_category(cls,name):
+        category = cls.objects.filter(name__icontains=name).first()
+        images=Image.objects.filter(category=category)
+        return images
 
 class Location(models.Model):
 
@@ -17,11 +22,10 @@ class Location(models.Model):
     def __str__(self):
         return self.city
 
-
 class Image(models.Model):
 
     name = models.CharField(max_length =30)
-    Image_Main_Img = models.ImageField(upload_to='media/images/') 
+    Image_Main_Img = models.ImageField(upload_to='gallery/') 
     description = models.TextField()
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
@@ -43,21 +47,24 @@ class Image(models.Model):
     def display_image(self):
         self.display()
 
+    @classmethod
+    def search_by_category(cls,name):
+        category = Category.objects.filter(name__icontains=name).first()
+        images=cls.objects.filter(category=category)
+        return images
+
     class Meta:
         ordering = ['name']
 
     @classmethod
     def get_image(cls,id):
-        try:
-            image=Image.objects.get(id=id)
-            return image
-        except DoesNotExist:
-            return Image.objects.get(id=1)
+        # try:
+        #     image=Image.objects.get(id=id)
+        #     return image
+        # except DoesNotExist:
+            return Image.objects.get(id=id)
 
-    @classmethod
-    def search_by_category(cls,search_term):
-        images = cls.objects.filter(category__icontains=search_term)
-        return images
+  
 
 
     

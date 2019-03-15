@@ -6,3 +6,27 @@ body{
   background-color: antiquewhite;
   
 }
+.text{
+  color:darkred;
+  border: 1px solid darkred;
+  /* margin-left:150px;
+  margin-right:300px; */
+}
+.center h2{
+text-align: center;
+
+}
+.navbar {
+  background-color: brown;
+}
+div a{
+  color: blue;
+}
+.img{
+  float:left;
+  border: 1px solid darkred; 
+  
+}
+.search{
+  text-align: center;
+}

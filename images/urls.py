@@ -4,8 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
+    url(r'^$',views.images_of_day,name='imagesToday'),
     url('^$',views.gallery,name = 'gallery'),  
     url(r'^search/', views.search_results, name='search_results'),
+    url(r'^image/(\d+)',views.image,name ='image'),
 
 ]
 
