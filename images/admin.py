@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Images,Category,Location
+from .models import Image,Category,Location
 
 
-admin.site.register(Images)
+admin.site.register(Image)
 admin.site.register(Category)
 admin.site.register(Location)
 

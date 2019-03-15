@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
-from .models import Images
+from .models import Image
 
 
 # def gallery(request):
@@ -11,7 +11,7 @@ def gallery(request):
 
 def upload_images(request):
 
-    my_images = Images.objects.all()
+    my_images = Image.objects.all()
     return render(request, 'all-images/picture.html', {"my_images":my_images})
 
 

@@ -9,7 +9,6 @@ class Category(models.Model):
         return self.name
 
 
-
 class Location(models.Model):
 
     city = models.CharField(max_length =60)
@@ -19,16 +18,14 @@ class Location(models.Model):
         return self.city
 
 
-class Images(models.Model):
+class Image(models.Model):
 
     name = models.CharField(max_length =30)
-    Images_Main_Img = models.ImageField(upload_to='images/') 
+    Image_Main_Img = models.ImageField(upload_to='media/images/') 
     description = models.TextField()
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
    
-
-
 
     def __str__(self):
         return self.name
@@ -52,10 +49,10 @@ class Images(models.Model):
     @classmethod
     def get_image(cls,id):
         try:
-            image=Images.objects.get(id=id)
+            image=Image.objects.get(id=id)
             return image
         except DoesNotExist:
-            return Images.objects.get(id=1)
+            return Image.objects.get(id=1)
 
 
     
