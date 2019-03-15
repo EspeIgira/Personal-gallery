@@ -22,6 +22,23 @@ def The_images(request):
     return render(request, 'all-images/picture.html', {"my_images":my_images})
 
 
+
+def gallery_of_images(request, gallery_date):
+
+
+    except ValueError:
+        # Raise 404 error when ValueError is thrown
+        raise Http404()
+        assert False
+
+    if date == dt.date.gallery():
+        return redirect(images_of_gallery)
+
+    return render(request, 'all-images/picture.html', {"date": date,})
+
+
+
+
 def search_results(request):
 
     if 'category' in request.GET and request.GET["category"]:
