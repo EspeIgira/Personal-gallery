@@ -27,8 +27,8 @@ class Image(models.Model):
     name = models.CharField(max_length =30)
     Image_Main_Img = models.ImageField(upload_to='gallery/') 
     description = models.TextField()
-    location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location, null=True, blank=True)
+    category = models.ForeignKey(Category, null=True, blank=True)
    
 
     def __str__(self):
@@ -49,8 +49,11 @@ class Image(models.Model):
 
     @classmethod
     def search_by_category(cls,name):
-        category = Category.objects.filter(name__icontains=name).first()
-        images=cls.objects.filter(category=category)
+        category = Category.objects.filter(name__icontains=name).all()
+        images=None
+        for i in category:
+            print(i)
+            images=cls.objects.filter(category=i.id)
         return images
 
     class Meta:

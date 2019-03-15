@@ -9,11 +9,14 @@ class ImageTestClass(TestCase):
     def setUp(self):
         self.hotel = Category(name = 'hotel')
         self.place= Location(city = 'kigali',country = 'Rwanda')
-        self.food= Image(name = 'food',description='Our yummy test food.', Image_Main_Img ='gallery/yummy.jpg',location=self.place,category=self.hotel)
+        
+        
         self.hotel.save()
         self.place.save()
-
-        self.food.save_image()
+        self.cat = Category.objects.filter(name='hotel')
+        self.loc= Location.objects.filter(city = 'kigali')
+        self.food= Image(name = 'food',description='Our yummy test food.', Image_Main_Img ='gallery/yummy.jpg',location=self.cat.id,category=self.loc.id)
+        # self.food.save_image()
         
         # Testing  instance
     def test_instance(self):
